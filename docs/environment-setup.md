@@ -9,6 +9,8 @@ The file documents the initial environment setup of the Active Directory homelab
 - Memory: 6 GB
 - Processors: 2 Cores
 - Disk: 50 GB (Dynamically Allocated)
+- Network Adapter 1: NAT
+- Network Adapter 2: Host-Only
 
 ### Client Machine
 
