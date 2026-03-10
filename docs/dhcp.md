@@ -15,4 +15,8 @@ Setup DHCP for the Domain Controller VM to provide automatic IP address assignme
 - Confirm that the parent domain used for DNS is homelab.local, and that the IP matches (192.168.56.10)
 - Select option to activate the scope right away
 - Once Scope Wizard is complete, right-click the DHCP server name in the DHCP window, click Authorize, and then Refresh
+- DHCP functionality can be verified once a client VM joins the network
+
+### Verifying DHCP Functionality
+- CLIENT01 VM running Windows 10 created with Host-Only Adapter, connecting it to same network as DC01
 - 
