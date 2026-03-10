@@ -19,4 +19,4 @@ Setup DHCP for the Domain Controller VM to provide automatic IP address assignme
 
 ### Verifying DHCP Functionality
 - CLIENT01 VM running Windows 10 created with Host-Only Adapter, connecting it to same network as DC01
-- 
+- run ipconfig on CLIENT01 shows the IPv4 address of 192.168.56.102, which is within the range specified in the DHCP scope [SCREENSHOT HERE]
