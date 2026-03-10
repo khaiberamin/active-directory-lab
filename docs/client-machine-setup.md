@@ -9,4 +9,5 @@ Create Client VM (CLIENT01)
 - In the VM Settings -> Network Tab, set Adapter 1 to "Host-only Adapter"
 - This will mean CLIENT01 will be on the same network as DC01
 - Start VM and follow Windows installation instructions
+- Set CLIENT01 local admin username(user01) and password
 - 
