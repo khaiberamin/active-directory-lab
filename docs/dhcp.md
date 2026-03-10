@@ -20,3 +20,9 @@ Setup DHCP for the Domain Controller VM to provide automatic IP address assignme
 ### Verifying DHCP Functionality
 - CLIENT01 VM running Windows 10 created with Host-Only Adapter, connecting it to same network as DC01
 - run ipconfig on CLIENT01 shows the IPv4 address of 192.168.56.102, which is within the range specified in the DHCP scope [SCREENSHOT HERE]
+
+
+### VirtualBox DHCP Issues
+- I ran into some DHCP issues related to VirtualBox
+- CLIENT01 continues to show DHCP Server as 192.168.56.100 instead of pointing to the Domain Controller (192.168.56.10)
+- After some troubleshooting and research, I found that VirtualBox has its own DHCP server by default, and it was set with Server Address 192.168.56.100, the address that CLIENT01 is pointing to. This suggests that CLIENT01 is using VirtualBox's DHCP Server instead of the one I configured in DC01. I tried disabling the VirtualBox DHCP Server from the VirtualBox Network Tab, but running "ipconfig /all" on CLIENT01 continues to show the DHCP Server IP as 192.168.56.100. Despite this, the CLIENT01 IP is still within the range I specified in DC01, DNS was working properly, and joining the domain was successful. Will continue looking into DHCP problem.
