@@ -15,6 +15,12 @@ This file documents the initial environment setup of the Active Directory homela
 
 #### Setup    
 
-### Client Machine
+### Client Machine (CLIENT01)
+#### System Details
+- OS: Windows 10
+- Memory: 4 GB
+- Processors: 1 Core
+- Disk: 40 GB (Dynamically Allocated)
+- Network Adapter 1: Host-Only
 
 
