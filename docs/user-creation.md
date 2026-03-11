@@ -12,3 +12,10 @@ Learn how to create Users and Organization Units (OUs) within the domain.
 - Created Organizational Units for each department in a hypothetical organization, including HR, IT, Marketing, and Sales
 - Done by right clicking the domain name (homelab.local), selecting New -> Organizational Unit, and naming it
 - Additional Users were created and placed into each OU following same steps as above section
+
+### Resetting Password
+- Simulating the case of a user forgetting their password and requesting a password reset
+- User Wally West requests password reset
+- Navigate to Marketing OU and right click Wally West
+- Click "Reset Password" and enter a new password
+- Keep "User must change password at next logon" checked to ensure Wally West changes his password at next logon [SCREENSHOT HERE]
