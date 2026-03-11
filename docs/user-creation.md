@@ -19,3 +19,10 @@ Learn how to create Users and Organization Units (OUs) within the domain.
 - Navigate to Marketing OU and right click Wally West
 - Click "Reset Password" and enter a new password
 - Keep "User must change password at next logon" checked to ensure Wally West changes his password at next logon [SCREENSHOT HERE]
+
+### Applying Group Policy (GPOs)
+
+### Creating Security Groups
+
+### Adding Users with Powershell
+
