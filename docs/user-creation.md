@@ -1,0 +1,14 @@
+# Creation of Users and Organization Units in Active Directory
+
+## Goal
+Learn how to create Users and Organization Units (OUs) within the domain.
+
+### Creating Users
+- In Active Directory Users and Computers, right click Users container and select "New", then "User"
+- Enter First and Last name, username, and password for new User and finish
+- Verify new user appears in the Users container [SCREENSHOTS HERE]
+
+### Creating Organizational Units
+- Created Organizational Units for each department in a hypothetical organization, including HR, IT, Marketing, and Sales
+- Done by right clicking the domain name (homelab.local), selecting New -> Organizational Unit, and naming it
+- Additional Users were created and placed into each OU following same steps as above section
