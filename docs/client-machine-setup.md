@@ -16,9 +16,12 @@ Create Client VM (CLIENT01)
 
 ### Joining CLIENT01 to the Domain Steps
 - In Settings -> System -> About, select "Rename this PC (advanced)
-- Select "Change..." to rename computer to "CLIENT01" and set the Domain to "homelab.local" [SCREENSHOT HERE]
-- Enter Administrator credentials to join domain successfully [SCREENSHOT HERE]
-- After the necessary reboot, logged into CLIENT01 with HOMELAB\Administrator account to verify that the client machine is connected to the domain [2 SCREENSHOTS HERE]
-- Back in the Domain Controller (DC01), checked the DHCP Window to ensure that the Client machine's lease appeared in the Address Leases folder [SCREENSHOT HERE]
-- Also checked Active Directory Users and Computers to ensure that Client machine appeared in the list of Computers in the domain [SCREENSHOT HERE]
-- 
+- Select "Change..." to rename computer to "CLIENT01" and set the Domain to "homelab.local"
+- Enter Administrator credentials to join domain successfully
+<img src="../screenshots/client-machine-setup/client-joins-domain-successfully.png" width="600">
+- After the necessary reboot, logged into CLIENT01 with HOMELAB\Administrator account to verify that the client machine is connected to the domain
+<img src="../screenshots/client-machine-setup/sign-in-to-client01-with-admin-account1.png" width="600">
+- Back in the Domain Controller (DC01), checked the DHCP Window to ensure that the Client machine's lease appeared in the Address Leases folder
+- Also checked Active Directory Users and Computers to ensure that Client machine appeared in the list of Computers in the domain
+<img src="../screenshots/client-machine-setup/client-dhcp-lease.png" width="600">
+<img src="../screenshots/client-machine-setup/client01-AD-computer.png" width="600">
