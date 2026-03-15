@@ -54,7 +54,15 @@ Steps:
 The Wallpaper GPO is now linked. To test this, I login to the CLIENT01 VM as a user to confirm that the new wallpaper is active. For additional confirmation, in Powershell, running "gpresult /r" lists "Workstation Wallpaper Policy" under "Applied Group Policy Objects" [SCREENSHOT] [SCREENSHOT]
 
 ### Disabling Control Panel 
-
+The next GPO will be Disabling Control Panel usage for users. This GPO will only apply to certain OU, so applying it will be great practice for role-based policy. This GPO will apply to all non-IT users (HR, Sales, Marketing OUs).
+Steps:
+- Create a new GPO called "Disable Control Panel Policy"
+- Edit the GPO and navigate to: User Configuration -> Policies -> Administrative Templates -> Control Panel
+- Select "Prohibit access to Control Panel and PC Settings"
+- Select "Enabled" and Apply [SCREENSHOT]
+- In Group Policy Management window, Link the GPO to the HR, Marketing, and Sales OUs. Leave the IT OU as is. This means that all users outside of the IT OU should have their Control Panel usage blocked.
+- To test the GPO, I login to CLIENT01 VM as a user in any of the affected OUs. I choose to login as a user in the Marketing OU. I attempt to open Control Panel, but it is restricted. I also run "gpresult /r" in Powershell and find "Disable Control Panel Policy" under "Applied Group Policy Objects" [SCREENSHOT] [SCREENSHOT]
+- To test that the GPO does not affect IT users, I login as a user in the IT OU. I am able to successfully open Control Panel. Upon running "gpresult /r" in Powershell, "Disable Control Panel Policy" is not shown under "Applied Group Policy Objects", confirming that the GPO is not active for IT users. [SCREENSHOT] [SCREENSHOT]
 
 
 ### Login Banner
