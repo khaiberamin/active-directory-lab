@@ -10,23 +10,37 @@ Policies to implement:
 ##### Password Policy
 It was clear that a password policy was already in place for the domain by default given that there were minimum requirements for passwords when creating new users. Instead of creating a new GPO for a password policy, I decided to modify the existing one to make it more robust.
 - In Server Manager dashboard select: Tools -> Group Policy Management
-- Navigate to Forest: homelab.local -> Domains -> homelab.local -> Group Policy Objects -> Default Domain Policy [SCREENSHOT]
+- Navigate to Forest: homelab.local -> Domains -> homelab.local -> Group Policy Objects -> Default Domain Policy
+
+<img src="../screenshots/group-policy/GPO-navigate-default-domain-policy.png" width="600">
+
 - right click Default Domain Policy and select "Edit"
 - This opens the Group Policy Management Editor window
 - Navigate to: Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Account Policies -> Password Policy
-- This shows the password policy currently in place with settings such as: Minimum/Maximum password age, minimum password length, complexity requirements, and more [SCREENSHOT]
+- This shows the password policy currently in place with settings such as: Minimum/Maximum password age, minimum password length, complexity requirements, and more
 - The following changes were made to the Password Policy
     - Minimum password length was increased from 7 to 10
     - Maximium password age was increased from 42 days to 60 days
+
+<img src="../screenshots/group-policy/GPO-new-password-policy.png" width="600">
+
 ##### Account Lockout Threshold
 - The Account Lockout Policy is also located under Account Policies, alongside Password Policy
 - The following changes were made to the Account Lockout Policy
     - Account lockout threshold set to 5 attempts
-    - Account lockout duration (and reset timer) set to 2 minutes (Note: this was set to a low duration for ease of use in testing. A more appropriate value in real-world setting would be +15 minutes) [SCREENSHOT]
+    - Account lockout duration (and reset timer) set to 2 minutes (Note: this was set to a low duration for ease of use in testing. A more appropriate value in real-world setting would be +15 minutes)
+ 
+<img src="../screenshots/group-policy/GPO-account-lockout-threshold.png" width="600">
+
 ##### Testing Updated Policies
 These updated policies were tested by doing the following:
-- Creating a new user and attempting to set the password to something that didn't meet the new Password Policy requirements. I created a new user and attempted to set the initial password to "Password1", but this failed due to the new length requirement being 10 characters. After changing it to "Password123", the user was successfully created, verifying that the new Password Policy was working. [SCREENSHOT]
-- Purposely failing to login 5 times with a user account to verify that the Account Lockhold Threshold was working. On the CLIENT01 VM, I attempted to login to the new user account using the incorrect password 5 times. After the fifth unsuccessful attempt, I was temporary locked out, verifying that the Account Lockout Policy was working. After 2 minutes the lockout was reset, just as the new policy described, and I could login succesfully with the correct password. [SCREENSHOT]
+- Creating a new user and attempting to set the password to something that didn't meet the new Password Policy requirements. I created a new user and attempted to set the initial password to "Password1", but this failed due to the new length requirement being 10 characters. After changing it to "Password123", the user was successfully created, verifying that the new Password Policy was working.
+
+<img src="../screenshots/group-policy/GPO-password-policy-enforced-1.png" width="600">
+
+- Purposely failing to login 5 times with a user account to verify that the Account Lockhold Threshold was working. On the CLIENT01 VM, I attempted to login to the new user account using the incorrect password 5 times. After the fifth unsuccessful attempt, I was temporary locked out, verifying that the Account Lockout Policy was working. After 2 minutes the lockout was reset, just as the new policy described, and I could login succesfully with the correct password.
+
+<img src="../screenshots/group-policy/GPO-account-locked-out.png" width="600">
 
 
 ### Desktop Wallpaper Policy
@@ -37,7 +51,10 @@ Steps:
 - go to the Sharing tab and select Advanced Sharing
 - enable the "Share this folder" option, set the Share name to "Wallpapers", and Apply
 - In the Advanced Sharing Permissions, make sure everyone has Read permissions
--Now the folder is shared with the path "\\DC01\Wallpapers" [SCREENSHOT]
+-Now the folder is shared with the network path "\\DC01\Wallpapers"
+
+<img src="../screenshots/group-policy/GPO-wallpaper-shared-folder.png" width="600">
+
 
 Now that a shared folder containing the Wallpaper is set up, we can set up the GPO.
 
@@ -47,22 +64,42 @@ Steps:
 - Right-click the newly made policy and select "Edit"
 - Navigate to: User Configuration -> Policies -> Administrative Templates -> Desktop -> Desktop
 - Select the Desktop Wallpaper setting
-- Select "Enabled" and specify the path to the new desktop wallpaper in the "Wallpaper Name" field [SCREENSHOT]
-- Back in the Group Policy Management window, right-click the domain ("homelab.local") and select "Link an existing GPO"
-- Select "Workstation Wallpaper Policy" GPO [SCREENSHOT]
+- Select "Enabled" and specify the path to the new desktop wallpaper in the "Wallpaper Name" field
 
-The Wallpaper GPO is now linked. To test this, I login to the CLIENT01 VM as a user to confirm that the new wallpaper is active. For additional confirmation, in Powershell, running "gpresult /r" lists "Workstation Wallpaper Policy" under "Applied Group Policy Objects" [SCREENSHOT] [SCREENSHOT]
+<img src="../screenshots/group-policy/GPO-desktop-wallpaper-setting-enabled.png" width="600">
+
+- Back in the Group Policy Management window, right-click the domain ("homelab.local") and select "Link an existing GPO"
+- Select "Workstation Wallpaper Policy" GPO
+
+<img src="../screenshots/group-policy/GPO-linking-wallpaper-gpo-to-domain.png" width="600">
+
+
+The Wallpaper GPO is now linked. To test this, I login to the CLIENT01 VM as a user to confirm that the new wallpaper is active. For additional confirmation, in Powershell, running "gpresult /r" lists "Workstation Wallpaper Policy" under "Applied Group Policy Objects"
+
+<img src="../screenshots/group-policy/GPO-client-wallpaper-gpo-applied.png" width="600">
+<img src="../screenshots/group-policy/GPO-Wallpaper-gpresult-powershell.png" width="600">
+
 
 ### Disabling Control Panel 
-The next GPO will be Disabling Control Panel usage for users. This GPO will only apply to certain OU, so applying it will be great practice for role-based policy. This GPO will apply to all non-IT users (HR, Sales, Marketing OUs).
+The next GPO will be Disabling Control Panel usage for users. This GPO will only apply to specified OUs, so applying it will be great practice for role-based policy. This GPO will apply to all non-IT users (HR, Sales, Marketing OUs).
 Steps:
 - Create a new GPO called "Disable Control Panel Policy"
 - Edit the GPO and navigate to: User Configuration -> Policies -> Administrative Templates -> Control Panel
 - Select "Prohibit access to Control Panel and PC Settings"
-- Select "Enabled" and Apply [SCREENSHOT]
+- Select "Enabled" and Apply
+
+<img src="../screenshots/group-policy/GPO-control-panel-gpo-enabled.png" width="800">
+
 - In Group Policy Management window, Link the GPO to the HR, Marketing, and Sales OUs. Leave the IT OU as is. This means that all users outside of the IT OU should have their Control Panel usage blocked.
-- To test the GPO, I login to CLIENT01 VM as a user in any of the affected OUs. I choose to login as a user in the Marketing OU. I attempt to open Control Panel, but it is restricted. I also run "gpresult /r" in Powershell and find "Disable Control Panel Policy" under "Applied Group Policy Objects" [SCREENSHOT] [SCREENSHOT]
-- To test that the GPO does not affect IT users, I login as a user in the IT OU. I am able to successfully open Control Panel. Upon running "gpresult /r" in Powershell, "Disable Control Panel Policy" is not shown under "Applied Group Policy Objects", confirming that the GPO is not active for IT users. [SCREENSHOT] [SCREENSHOT]
+
+- To test the GPO, I login to CLIENT01 VM as a user in any of the affected OUs. I choose to login as a user in the Marketing OU. I attempt to open Control Panel, but it is restricted. I also run "gpresult /r" in Powershell and find "Disable Control Panel Policy" under "Applied Group Policy Objects"
+
+<img src="../screenshots/group-policy/GPO-Control-panel-restricted-marketing-user.png" width="600">
+<img src="../screenshots/group-policy/GPO-Control-panel-marketing-gpresult.png" width="600">
+
+- To test that the GPO does not affect IT users, I login as a user in the IT OU. I am able to successfully open Control Panel. Upon running "gpresult /r" in Powershell, "Disable Control Panel Policy" is not shown under "Applied Group Policy Objects", confirming that the GPO is not active for IT users.
+
+<img src="../screenshots/group-policy/GPO-control-panel-IT.png" width="600">
+<img src="../screenshots/group-policy/GPO-Control-panel-IT-gpresult.png" width="600">
 
 
-### Login Banner
