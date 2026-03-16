@@ -47,9 +47,52 @@ will verify that the new user was created and display user info.
 [SCREENSHOT]
 
 ### User Creation with a Reusable Script in Powershell
+Using the Powershell Command above to create a user would be more practical if it was in a script to allow for reusability and efficiency. 
+- Open Windows Powershell ISE to write, test, and run the script
+- Here is the script (UserCreation.ps1)
+```Powershell
+param(
+    [string]$FirstName,
+    [string]$LastName,
+    [string]$AccountName,
+    [string]$OU,
+    [string]$Domain = "homelab.local",
+    [string]$Password = "Password123"
+    )
 
+Import-Module ActiveDirectory -ErrorAction Stop
+
+$FirstHalfDomain = $Domain.Split('.')[0]
+$SecondHalfDomain = $Domain.Split('.')[1]
+
+New-ADUser `
+-Name "$FirstName $LastName" `
+-GivenName "$FirstName" `
+-Surname "$LastName" `
+-SamAccountName "$AccountName" `
+-UserPrincipalName "$AccountName@$Domain" `
+-Path "OU=$OU,DC=$FirstHalfDomain,DC=$SecondHalfDomain" `
+-AccountPassword (ConvertTo-SecureString "$Password" -AsPlainText -Force) `
+-ChangePasswordAtLogon $true `
+-Enabled $true
+
+$GroupName = "${OU}_Group"
+
+Add-ADGroupMember -Identity $GroupName -Members $AccountName
+
+#end of script ------------------------------
+```
+
+This script essentially runs the command to create a single user like before, but uses parameters to make it less time consuming. Previously, I needed to type out the entire command and hardcode the parameters on the CLI. Now, I can simple run the script on the CLI and type the few parameters needed. Additionally, it also places the new user in their respective security group using the "Add-ADGroupMember" command.
+- Here is what is run on Powershell to create a user with the above script
+```Powershell
+.\CreateUser.ps1 -FirstName "Norman" -LastName "Osborne" -AccountName "nosborne" -OU "Sales"
+```
+-This creates a user "Norman Osborne" with username "nosborne" in the Sales department, and places them in the "Sales_Group" security group. 
+
+[SCREENSHOT]
 
 
 ### Bulk User Creation in Powershell
-
+The above two methods of creating a user work well for creating a single new user, but would be inefficient for bulk user creation. This problem can be solved by writing a Powershell script that creates a large number of users based on input from a CSV file. 
 
