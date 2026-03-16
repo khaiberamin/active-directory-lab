@@ -95,4 +95,65 @@ This script essentially runs the command to create a single user like before, bu
 
 ### Bulk User Creation in Powershell
 The above two methods of creating a user work well for creating a single new user, but would be inefficient for bulk user creation. This problem can be solved by writing a Powershell script that creates a large number of users based on input from a CSV file. 
+- The CSV file used is here:
+```csv
+FirstName,LastName,AccountName,OU
+Tom,Brady,tbrady,HR
+Aaron,Rodgers,arodgers,Sales
+Tony,Romo,tromo,Sales
+Justin,Herbert,jherbert,Marketing
+Matthew,Stafford,mstafford,IT
+Drake,Maye,dmaye,Sales
+Jared,Goff,jgoff,HR
+Joe,Burrow,jburrow,HR
+Josh,Allen,jallen,IT
+Lamar,Jackson,ljackson,Sales
+```
 
+- Here is the script (CreateUserBulk.ps1)
+```powershell
+
+param(
+    [string]$CSVPath
+    )
+
+Import-Module ActiveDirectory -ErrorAction Stop
+
+$Users = Import-Csv -Path $CSVPath
+
+$Domain = "homelab.local"
+$FirstHalfDomain = $Domain.Split('.')[0]
+$SecondHalfDomain = $Domain.Split('.')[1]
+$Password = "Password123"
+
+foreach ($User in $Users) {
+   
+   New-ADUser `
+   -Name "$($User.FirstName) $($User.LastName)" `
+   -GivenName $User.FirstName `
+   -Surname $User.LastName `
+   -SamAccountName $User.AccountName `
+   -UserPrincipalName "$($User.AccountName)@$Domain" `
+   -Path "OU=$($User.OU),DC=$FirstHalfDomain,DC=$SecondHalfDomain" `
+   -AccountPassword (ConvertTo-SecureString "$Password" -AsPlainText -Force) `
+   -ChangePasswordAtLogon $true `
+   -Enabled $true
+
+   $GroupName = "$($User.OU)_Group"
+   Add-ADGroupMember -Identity $GroupName -Members $User.AccountName
+
+   Write-Host "Created User $($User.FirstName) $($User.LastName) in $($User.OU)"
+    
+}
+   
+
+#end of script ------------------------------
+```
+
+-This script uses a foreach loop to loop through each line of the provided CSV file and create users based on the data recieved. Each user is also put into their respective department security group. Here is the command run on PowerShell to create users contained in the CSV file "UsersToAdd.csv"
+```powershell
+.\CreateUserBulk.ps1 -CSVPath C:\DataFiles\CSV\UsersToAdd.csv
+```
+
+[SCREENSHOT]
+[SCREENSHOT]
