@@ -44,7 +44,7 @@ Get-ADUser pparker
 ```
 will verify that the new user was created and display user info. 
 
-[SCREENSHOT]
+<img src="../screenshots/user-creation/POWERSHELL-userCreation.png" width="600">
 
 ### User Creation with a Reusable Script in Powershell
 Using the Powershell Command above to create a user would be more practical if it was in a script to allow for reusability and efficiency. 
@@ -90,7 +90,7 @@ This script essentially runs the command to create a single user like before, bu
 ```
 -This creates a user "Norman Osborne" with username "nosborne" in the Sales department, and places them in the "Sales_Group" security group. 
 
-[SCREENSHOT]
+<img src="../screenshots/user-creation/POWERSHELL-user-creation-script-ISE.png" width="950">
 
 
 ### Bulk User Creation in Powershell
@@ -155,5 +155,5 @@ foreach ($User in $Users) {
 .\CreateUserBulk.ps1 -CSVPath C:\DataFiles\CSV\UsersToAdd.csv
 ```
 
-[SCREENSHOT]
-[SCREENSHOT]
+<img src="../screenshots/user-creation/POWERSHELL-bulk-user-creation-script-ISE.png" width="600">
+<img src="../screenshots/user-creation/POWERSHELL-verify-bulk-users-join-group.png" width="600">
