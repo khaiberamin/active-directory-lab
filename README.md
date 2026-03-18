@@ -32,7 +32,7 @@ This Active Directory (AD) Homelab Project simulates the deployment and manageme
 
 ## Documentation Links
 - [Environment Setup](docs/environment-setup.md)
-- [Active Directory Setup](docs/active-directory.setup.md)
+- [Active Directory Setup](docs/active-directory-setup.md)
 - [Client Machine Setup](docs/client-machine-setup.md)
 - [DHCP Setup](docs/dhcp.md)
 - [User Creation and Management](docs/user-creation.md)
