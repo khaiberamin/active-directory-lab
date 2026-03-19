@@ -1,6 +1,16 @@
 # Active Directory Homelab Project
 ## Overview
-This Active Directory (AD) Homelab Project simulates the deployment and management of a real world IT environment using virtual machines within a domain. It covers various topics including: setting up a Windows Server 2022 VM as the Domain Controller (DC), setting up a Windows 10 client machine and joining it to the domain, Active Directory Domain Services (ADDS) installation and setup, setting up DHCP, user and Organizational Unit (OU) management, Group Policy Objects (GPO), security groups, file share permissions, and automating administrative tasks via Powershell.
+This Active Directory (AD) Homelab Project simulates the deployment and management of a real world IT environment using virtual machines within a domain. It covers various topics including: 
+- Setting up a **Windows Server 2022** VM as the **Domain Controller (DC)**
+- Setting up a **Windows 10** client machine and joining it to the domain
+- Installing and setting up **Active Directory Domain Services (ADDS)**
+- Setting up **DHCP** and **DNS**
+- Managing User, **Organizational Unit (OU)**, and **Security Groups**
+- Implementing **Group Policy Objects (GPO)**
+- Setting up file shares with permissions
+- Automating administrative tasks via **PowerShell**
+
+## Goal
 
 ## Table of Contents
 - [Active Directory Environment](#active-directory-environment)
@@ -10,7 +20,7 @@ This Active Directory (AD) Homelab Project simulates the deployment and manageme
 - [Documentation Links](#documentation-links)
 
 ## Active Directory Environment
-The simulated environment for this project is the Active Directory (AD) managed domain of a Sales and Marketing organization. This organization has multiple departments including: HR, IT, Marketing, and Sales. 
+The simulated environment for this project is the Active Directory (AD) managed domain of a Sales and Marketing organization. This organization has multiple departments including: **HR, IT, Marketing, and Sales**. 
 
 ## Technology Used
 - Virtualization
