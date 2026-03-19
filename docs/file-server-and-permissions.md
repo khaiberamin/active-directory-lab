@@ -49,3 +49,20 @@ From the Client machine, we can test that the Share permissions are working as e
 
 <img src="../screenshots/file-server-and-permissions/GROUPS-access-granted-HR-Share.png" width="600">
 <img src="../screenshots/file-server-and-permissions/GROUPS-access-denied-IT-Share.png" width="600">
+
+<br>
+<br>
+
+### Additions
+- Added 4 more security groups:
+  - IT_Manager_Group
+  - HR_Manager_Group
+  - Marketing_Manager_Group
+  - Sales_Manager_Group
+- These groups are for the managers of their respective departments, and will grant managers greater access control within their department
+- These groups will also be members of their respective default groups so that managers inherit all the access of the users within their department
+- Changed the NTFS Permissions for Department Shares as follows:
+  - Added Manager groups to their respective shares, with **Full Control** Permissions
+  - This gives Managers more access control over their respective shares compared to general users within the department (which have **Modify** Permissions)
+  [SCREENSHOT]
+
