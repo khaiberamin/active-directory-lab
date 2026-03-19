@@ -10,17 +10,23 @@ This Active Directory (AD) Homelab Project simulates the deployment and manageme
 - Setting up file shares with permissions
 - Automating administrative tasks via **PowerShell**
 
-## Goal
+
+## Project Goals
+
+
 
 ## Table of Contents
 - [Active Directory Environment](#active-directory-environment)
 - [Technology Used](#technology-used)
-- []()
+- [Reproducing the Environment](#reproducing-the-environment)
+- [Project Documentation](#project-documentation)
+- [PowerShell Scripts]
+- [Administrative Task Scenarios]
 - [Skills Demonstrated](#skills-demonstrated)
-- [Documentation Links](#documentation-links)
 
 ## Active Directory Environment
 The simulated environment for this project is the Active Directory (AD) managed domain of a Sales and Marketing organization. This organization has multiple departments including: **HR, IT, Marketing, and Sales**. 
+
 
 ## Technology Used
 - Virtualization
@@ -39,7 +45,39 @@ The simulated environment for this project is the Active Directory (AD) managed 
   - GitHub
   - Markdown
 
-## 
+
+## Reproducing the Environment
+To recreate the AD Lab environment in this project:
+- Create and configure virtual machines for the Server and Client Computers on VirtualBox
+-  Install Windows Server 2022 on the Server VM, configuring Domain Controller (DC), Active Directory, and DHCP functionality
+-  Install Windows 10 on the Client VM and join it to the domain created by the Domain Controller
+
+Detailed steps avialable in [Project Documentation](#project-documentation).
+
+
+## Project Documentation
+The following files document the process for configuring the project environment and completing the various tasks that simulate an AD management workflow.  
+
+- [Environment Setup](docs/environment-setup.md) - Virtual Machine configuration details
+- [Active Directory Setup](docs/active-directory-setup.md) - Active Directory installation and configuration on the Domain Controller VM
+- [DHCP Setup](docs/dhcp.md) - Dynamic Host Configuration Protocol setup and verification
+- [Client Machine Setup](docs/client-machine-setup.md) - Client VM setup and joining to the domain
+- [User Creation and Management](docs/user-creation.md) - User and OU management within the AD environment, including automation scripts
+- [Group Policy](docs/group-policy.md) - Implementation of multiple Group Policy Objects (GPOs)
+- [Security Groups, File Shares, and Permissions](docs/file-server-and-permissions.md) - Implementation of file shares with access control, using security groups
+- [Audit](TODO)
+- [Administrative Task Scenarios](TODO)
+
+
+## Powershell Scripts
+
+
+
+
+## Administrative Task Scenarios
+
+
+
 
 ## Skills Demonstrated
 - Virtual machine configuration using VirtualBox
@@ -61,15 +99,4 @@ The simulated environment for this project is the Active Directory (AD) managed 
 - File share creation and permission configuration
 - Detailed project documentation 
 
-
-## Documentation Links
-- [Environment Setup](docs/environment-setup.md)
-- [Active Directory Setup](docs/active-directory-setup.md)
-- [DHCP Setup](docs/dhcp.md)
-- [Client Machine Setup](docs/client-machine-setup.md)
-- [User Creation and Management](docs/user-creation.md)
-- [Group Policy](docs/group-policy.md)
-- [Security Groups, File Shares, and Permissions](docs/file-server-and-permissions.md)
-
-## References
 
