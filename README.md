@@ -20,7 +20,7 @@ This Active Directory (AD) Homelab Project simulates the deployment and manageme
 - [Technology Used](#technology-used)
 - [Reproducing the Environment](#reproducing-the-environment)
 - [Project Documentation](#project-documentation)
-- [PowerShell Scripts]
+- [PowerShell Scripts](#powershell-scripts)
 - [Administrative Task Scenarios](#administrative-task-scenarios)
 - [Skills Demonstrated](#skills-demonstrated)
 
