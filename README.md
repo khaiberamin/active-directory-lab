@@ -70,7 +70,12 @@ The following files document the process for configuring the project environment
 
 
 ## Powershell Scripts
-
+Here are the PowerShell Scripts used for their respective purposes in this project
+- User Creation Script
+  - [CreateUser.ps1](/scripts/CreateUser.ps1) - Creates a single AD user based on provided parameters on the CLI
+ 
+- Bulk User Creation Script
+  - [CreateUserBulk.ps1](/scripts/CreateUserBulk.ps1) - Reads new user data from a compatible CSV file to create AD users automatically, improving the efficiency of bulk user creation
 
 
 
