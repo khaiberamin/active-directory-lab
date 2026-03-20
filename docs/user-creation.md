@@ -49,7 +49,7 @@ will verify that the new user was created and display user info.
 ### User Creation with a Reusable Script in Powershell
 Using the Powershell Command above to create a user would be more practical if it was in a script to allow for reusability and efficiency. 
 - Open Windows Powershell ISE to write, test, and run the script
-- Here is the script (UserCreation.ps1)
+- Here is the script ([UserCreation.ps1](../scripts/CreateUser.ps1))
 ```Powershell
 param(
     [string]$FirstName,
@@ -110,7 +110,7 @@ Josh,Allen,jallen,IT
 Lamar,Jackson,ljackson,Sales
 ```
 
-- Here is the script (CreateUserBulk.ps1)
+- Here is the script ([CreateUserBulk.ps1](../scripts/CreateUserBulk.ps1))
 ```powershell
 
 param(
