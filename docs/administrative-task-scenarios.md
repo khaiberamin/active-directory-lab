@@ -5,7 +5,7 @@ The goal of this section is to simulate real AD administrative scenarios and suc
 
 ### Scenario 1 - User is Locked Out of Account
 The first scenario to solve is the issue of a User being locked out of their account after too many incorrect password attempts. 
-Steps:
+#### Steps:
 - On Client Machine, attempt to login to an account with the incorrect password +5 times
 - This will trigger the Account Lockout Threshold Policy, locking the user account
 [SCREENSHOT]
@@ -38,7 +38,7 @@ Currently, the HR Manager is user *Jane Doe*, and the new HR Manager will be the
 
 *Note: There is currently no Organizational Unit (OU) for Former Employees, which may be useful for organization purposes, so the OU "Former Employees" is created.
 
-Steps:
+#### Steps:
 - Disable the former manager's account in Active Directory Users and Computers by right-clicking the account and selecting *Disable Account*
 - Drag and drop the former manager's account from the HR OU to the Former Employees OU
 - In order to remove the former manager from the *HR* and *HR_Manager* security groups do the following:
