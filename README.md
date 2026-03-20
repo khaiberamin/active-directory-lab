@@ -77,10 +77,18 @@ Here are the PowerShell Scripts used for their respective purposes in this proje
 - Bulk User Creation Script
   - [CreateUserBulk.ps1](/scripts/CreateUserBulk.ps1) - Reads new user data from a compatible CSV file to create AD users automatically, improving the efficiency of bulk user creation
 
+- Change Manager Script
+  - [ReassignManager.ps1](/scripts/ReassignManager.ps1) - Changes the *Manager* property of all AD Users that point to a specified Manager; useful for the scenario of a manager change within a department OU 
+
 
 
 ## Administrative Task Scenarios
 
+- Scenario 1
+- Scenario 2
+- Scenario 3
+- Scenario 4
+- Scenario 5
 
 
 
