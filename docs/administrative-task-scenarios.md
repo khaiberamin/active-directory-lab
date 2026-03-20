@@ -52,7 +52,7 @@ Steps:
     - in the *Organization* Tab, press *Clear* to remove the old manager from the *Manager* attribute of the new manager
     - *Note: If the new manager has their own manager, simple add that username to the *Manager* attribute instead
 - All AD users that pointed to the old manager's AD user must now update their "Manager" attribute. Since this can be a large number of users, it is best to use a PowerShell script to complete this step
-    - The following PowerShell script will change the "Manager" attribute of all AD users who currently point to the old manager, replacing the attribute with the new manager
+    - The following [PowerShell script](../scripts/ReassignManager.ps1) will change the "Manager" attribute of all AD users who currently point to the old manager, replacing the attribute with the new manager
 ```powershell
 param(
     [Parameter(Mandatory=$true)]
