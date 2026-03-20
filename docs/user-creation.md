@@ -157,3 +157,13 @@ foreach ($User in $Users) {
 
 <img src="../screenshots/user-creation/POWERSHELL-bulk-user-creation-script-ISE.png" width="600">
 <img src="../screenshots/user-creation/POWERSHELL-verify-bulk-users-join-group.png" width="600">
+
+
+### Additions
+- Each AD user has a "Manager" field that points to the AD user of their manager. This field can be updated in the **Organization** tab in user properties. It can also be done in PowerShell with the following command:
+```powershell
+Set-ADUser -Identity "<username>" -Manager "<manager username>"
+```
+-I updated all users' manager fields to point to their respective manager
+[SCREENSHOT]
+
