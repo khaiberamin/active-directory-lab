@@ -79,11 +79,9 @@ Get-ADUser -Filter * -SearchBase "OU=HR,DC=homelab,DC=local" -Properties Manager
 [SCREENSHOT]
 
 
-### Scenario 3 - Member of Sales is moved to Marketing
+### Scenario 3 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns.
 TODO
 
-### Scenario 4 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns.
-TODO
 
-### Scenario 5 - HR requests audit of all interns
+### Scenario 4 - HR requests audit of all interns
 TODO
