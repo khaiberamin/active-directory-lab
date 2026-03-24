@@ -79,9 +79,42 @@ Get-ADUser -Filter * -SearchBase "OU=HR,DC=homelab,DC=local" -Properties Manager
 [SCREENSHOT]
 
 
-### Scenario 3 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns.
-TODO
+### Scenario 3 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns and set up file permissions.
+In this scenario, 20 new interns will be hired into the Marketing Department. A CSV file contains all relevant user information. It is important that the interns have access to the *Marketing_Share* drive in order to complete their work, but they must not be able to access sensitive documents, which should be reserved for the full-time Marketing employees. 
 
+#### Steps
+##### Creating New Security Group for Interns
+- First, a new Security Group must be made for the Marketing Interns in order to give them unique permissions
+  - open Active Directory Users and Computers
+  - navigate to homelab.local -> Groups
+  - create a new Global Security group called *Marketing_Interns_Group*
+
+###### Creating Shared Drive for Interns inside of Marketing Drive
+- The *Marketing_Share* drive needs subfolders for more fine-grain control of permissions within the drive. A *Interns_Share* and *Sensitive_Share* will be made. Interns should only have access to the *Interns_Share*, while full-time Marketing employees should have access to both *Interns_Share* and *Sensitive_Share.* This can be done with security groups.
+  - Navigate to the *Marketing_Share* in the C drive of the Domain Controller
+  - Navigate to Properties -> Security and click "Edit" then "Add"
+  - Add the *Marketing_Interns_Group* and give the group "Read and Execute" permissions
+  - Inside the *Marketing_Share* create 2 new folders: *Interns_Share* and *Sensitive_Share*
+  - Disable inheritance of permissions for both the *Interns_Share* and *Sensitive_Share* folders
+  - Give *Marketing_Interns_Group* "Modify" permissions for the *Interns_Share*
+  - Remove *Marketing_Interns_Group* from the list of groups with access to the *Sensitive_Share*
+
+ ##### Testing Shared Drive Permissions with Test Account
+- Now, it is time to test the shared permissions with a Testing Account before adding the Interns' user accounts to the domain
+  - In *Active Directory Users and Computers*, inside the *Marketing* OU, create a new OU called *Marketing_Interns*
+  - Inside the *Marketing_Interns* OU, create a new user named "Test Intern1"
+  - Add "Test Intern1" to the *Marketing_Interns_Group*
+  - On the Client Machine, log in with with the "Test Intern1" account and navigate to the Shared Drives
+  - Attempt to open the *Interns_Share* folder inside the *Marketing_Share* folder. Access should be granted
+  - Attempt to open the *Sensitive_Share* folder. Access should be denied
+[SCREENSHOT][SCREENSHOT]
+
+- After confirming that Interns can access the *Interns_Share* but not the *Sensitive_Share*, we can test the same permissions again with a Marketing Employee user, which should have access to both folders
+
+##### Creating User Accounts for Interns
+- Now that setup and testing is complete, it is time to create the user accounts for the interns joining the Marketing department
+- The user account information of all interns is in the CSV file titled *InternsToAdd.csv*
+- The PowerShell script [CreateUserBulk.ps1](../scripts/CreateUserBulk.ps1) can be used to create all AD user accounts for the interns
 
 ### Scenario 4 - HR requests audit of all interns
 TODO
