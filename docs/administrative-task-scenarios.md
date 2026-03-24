@@ -114,7 +114,16 @@ In this scenario, 20 new interns will be hired into the Marketing Department. A 
 ##### Creating User Accounts for Interns
 - Now that setup and testing is complete, it is time to create the user accounts for the interns joining the Marketing department
 - The user account information of all interns is in the CSV file titled *InternsToAdd.csv*
-- The PowerShell script [CreateUserBulk.ps1](../scripts/CreateUserBulk.ps1) can be used to create all AD user accounts for the interns
+- The PowerShell script [CreateUserBulk.ps1](../scripts/CreateUserBulk.ps1) does not work for nested OUs, so it must be modified
+- The modified Powershell script is shown here:
+```powershell
+
+```
+- This modified version takes into account a new CSV format that includes the entire distinguished name for the OU field, since the *Marketing_Interns* OU is nested in the *Marketing* OU
+- It also fixes the logic of assigning the new user into their security group, since the original script did not take into account nested OUs
+
+- Running this script generates all 20 new users successfully [SCREENSHOT][SCREENSHOT]
+
 
 ### Scenario 4 - HR requests audit of all interns
 TODO
