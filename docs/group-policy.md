@@ -88,7 +88,7 @@ Steps:
 - Select "Prohibit access to Control Panel and PC Settings"
 - Select "Enabled" and Apply
 
-<img src="../screenshots/group-policy/GPO-control-panel-gpo-enabled.png" width="800">
+<img src="../screenshots/group-policy/GPO-control-panel-gpo-enabled.png" width="950">
 
 - In Group Policy Management window, Link the GPO to the HR, Marketing, and Sales OUs. Leave the IT OU as is. This means that all users outside of the IT OU should have their Control Panel usage blocked.
 
