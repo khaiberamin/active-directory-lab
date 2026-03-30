@@ -8,7 +8,7 @@ The first scenario to solve is the issue of a User being locked out of their acc
 #### Steps:
 - On Client Machine, attempt to login to an account with the incorrect password +5 times
 - This will trigger the Account Lockout Threshold Policy, locking the user account
-[SCREENSHOT]
+<img src="../screenshots/administrative-task-scenarios/SCENARIOS-account-locked-out.png" width="600">
 
 - Verify the User's credentials and identity before proceeding with unlocking their account
 - On the DC Machine, in PowerShell, run the following command to search for **locked accounts**
@@ -26,7 +26,7 @@ Search-ADAccount -LockedOut
 ```
 
 - Back on the Client Machine, log in with the correct password to verify that the user can log in
-[SCREENSHOT]
+<img src="../screenshots/administrative-task-scenarios/SCENARIOS-user-account-unlocked-powershell.png" width="600">
 
 
 <br>
@@ -44,7 +44,8 @@ Currently, the HR Manager is user *Jane Doe*, and the new HR Manager will be the
 - In order to remove the former manager from the *HR* and *HR_Manager* security groups do the following:
     - open user *Properties* of the former manager
     - in the *Member Of* tab, select both the *HR_Group* and the *HR_Manager_Group*
-    - Select *Remove*, and confirm [SCREENSHOT]
+    - Select *Remove*, and confirm
+ <img src="../screenshots/administrative-task-scenarios/SCENARIOS-removing-old-manager-from-groups.png" width="600">
 
 - In order to add the new manager to the *HR_Manager* security group, follow the same steps, but *Add* and then type in and select "HR_Manager_Group"
 - Update the "Manager" attribute of the new manager by doing the following:
@@ -76,7 +77,8 @@ ForEach-Object {
 Get-ADUser -Filter * -SearchBase "OU=HR,DC=homelab,DC=local" -Properties Manager | Select-Object SamAccountName, Manager
 ```
 -In this case, it shows that all users in the HR OU now have user Oliver Queen as their Manager, with the exception of Oliver Queen, who does not have a Manager.
-[SCREENSHOT]
+
+<img src="../screenshots/administrative-task-scenarios/SCENARIOS-manager-change-script.png" width="600">
 
 
 ### Scenario 3 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns and set up file permissions. [IN PROGRESS]
@@ -107,7 +109,10 @@ In this scenario, 20 new interns will be hired into the Marketing Department. A 
   - On the Client Machine, log in with with the "Test Intern1" account and navigate to the Shared Drives
   - Attempt to open the *Interns_Share* folder inside the *Marketing_Share* folder. Access should be granted
   - Attempt to open the *Sensitive_Share* folder. Access should be denied
-[SCREENSHOT][SCREENSHOT]
+
+ <img src="../screenshots/administrative-task-scenarios/SCENARIOS-interns-share-folder-access-granted.png" width="600">
+ <img src="../screenshots/administrative-task-scenarios/SCENARIOS-sensitive-share-access-denied.png" width="600">
+
 
 - After confirming that Interns can access the *Interns_Share* but not the *Sensitive_Share*, we can test the same permissions again with a Marketing Employee user, which should have access to both folders
 
@@ -119,10 +124,6 @@ In this scenario, 20 new interns will be hired into the Marketing Department. A 
 ```powershell
 
 ```
-- This modified version takes into account a new CSV format that includes the entire distinguished name for the OU field, since the *Marketing_Interns* OU is nested in the *Marketing* OU
-- It also fixes the logic of assigning the new user into their security group, since the original script did not take into account nested OUs
-
-- Running this script generates all 20 new users successfully [SCREENSHOT][SCREENSHOT]
 
 
 ### Scenario 4 - HR requests audit of all interns
