@@ -11,8 +11,6 @@ This Active Directory (AD) Homelab Project simulates the deployment and manageme
 - Automating administrative tasks via **PowerShell**
 
 
-## Project Goals
-
 
 
 ## Table of Contents
