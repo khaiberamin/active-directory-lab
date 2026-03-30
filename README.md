@@ -21,7 +21,6 @@ This Active Directory (AD) Homelab Project simulates the deployment and manageme
 - [Reproducing the Environment](#reproducing-the-environment)
 - [Project Documentation](#project-documentation)
 - [PowerShell Scripts](#powershell-scripts)
-- [Administrative Task Scenarios](#administrative-task-scenarios)
 - [Skills Demonstrated](#skills-demonstrated)
 
 ## Active Directory Environment
@@ -65,8 +64,7 @@ The following files document the process for configuring the project environment
 - [User Creation and Management](docs/user-creation.md) - User and OU management within the AD environment, including automation scripts
 - [Group Policy](docs/group-policy.md) - Implementation of multiple Group Policy Objects (GPOs)
 - [Security Groups, File Shares, and Permissions](docs/file-server-and-permissions.md) - Implementation of file shares with access control, using security groups
-- [Audit](TODO)
-- [Administrative Task Scenarios](docs/administrative-task-scenarios.md)
+- [Administrative Task Scenarios](docs/administrative-task-scenarios.md) - Simulating various administrative task scenarios and the process to solve them
 
 
 ## Powershell Scripts
@@ -82,13 +80,6 @@ Here are the PowerShell Scripts used for their respective purposes in this proje
 
 
 
-## Administrative Task Scenarios
-
-- Scenario 1
-- Scenario 2
-- Scenario 3
-- Scenario 4
-- Scenario 5
 
 
 
