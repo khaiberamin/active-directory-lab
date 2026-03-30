@@ -79,7 +79,7 @@ Get-ADUser -Filter * -SearchBase "OU=HR,DC=homelab,DC=local" -Properties Manager
 [SCREENSHOT]
 
 
-### Scenario 3 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns and set up file permissions.
+### Scenario 3 - Organization hired 20 new interns into the Marketing Department. CSV file containing intern information is provided. Create user accounts for interns and set up file permissions. [IN PROGRESS]
 In this scenario, 20 new interns will be hired into the Marketing Department. A CSV file contains all relevant user information. It is important that the interns have access to the *Marketing_Share* drive in order to complete their work, but they must not be able to access sensitive documents, which should be reserved for the full-time Marketing employees. 
 
 #### Steps
