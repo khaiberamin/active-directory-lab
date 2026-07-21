@@ -1,9 +1,9 @@
 # Active Directory Homelab Project
 ## Overview
-This Active Directory (AD) Homelab Project simulates the deployment and management of a real world IT environment using virtual machines within a domain. It covers various topics including: 
+This repository documents an Active Directory (AD) Home Lab that simulates the deployment and management of a Windows-based enterprise environment using virtual machines within a domain. The project showcases various Windows Server administration tasks including: 
 - Setting up a **Windows Server 2022** VM as the **Domain Controller (DC)**
 - Setting up a **Windows 10** client machine and joining it to the domain
-- Installing and setting up **Active Directory Domain Services (ADDS)**
+- Installing and setting up **Active Directory Domain Services (AD DS)**
 - Setting up **DHCP** and **DNS**
 - Managing User, **Organizational Unit (OU)**, and **Security Groups**
 - Implementing **Group Policy Objects (GPO)**
