@@ -3,7 +3,6 @@
 Policies to implement:
 - Password policy
 - Desktop Wallpaper Policy
-- Login banner
 - Disabling the Control Panel for users
 
 ### Password Policy and Account Lockout Threshold
@@ -102,5 +101,3 @@ Steps:
 <img src="../screenshots/group-policy/GPO-control-panel-IT.png" width="600">
 <img src="../screenshots/group-policy/GPO-Control-panel-IT-gpresult.png" width="600">
 
-### Login Banner
-[TODO]
