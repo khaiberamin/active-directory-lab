@@ -1,7 +1,7 @@
 # Active Directory Domain Services Installation and Promotion to Domain Controller
 
 ## Goal
-Successfully Install and configure Active Directory (AD) for domain "homelab.local" and promote DC01 to Domain Controller (DC)
+Successfully install and configure Active Directory (AD) for domain "homelab.local" and promote DC01 to Domain Controller (DC)
 
 ### Steps    
 - Set Administrator password during Windows Server Installation
@@ -18,9 +18,7 @@ Successfully Install and configure Active Directory (AD) for domain "homelab.loc
 - Click "Promote this server to a domain controller" to open Deployment Configuration window
 - Select "Add a new forest"
 - Set a root domain name to "homelab.local"
-- setup a DSRM password
-- continue the rest of the setup with default options and Install (will Restart)
+- Setup a DSRM password
+- Complete the remaining configuration using the default settings and allow the server to restart.
 - After reboot, open Tools -> Active Directory Users and Computers. Then expand homelab.local and open the Domain Controllers folder to confirm that DC01 Computer is listed as the Domain Controller.
 <img src="../screenshots/active-directory-setup/promoted-DC-confirmation.png" width="600">
-
-
