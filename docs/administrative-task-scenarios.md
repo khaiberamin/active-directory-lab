@@ -126,5 +126,3 @@ In this scenario, 20 new interns will be hired into the Marketing Department. A 
 ```
 
 
-### Scenario 4 - HR requests audit of all interns
-TODO
