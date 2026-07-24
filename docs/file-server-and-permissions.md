@@ -64,5 +64,4 @@ From the Client machine, we can test that the Share permissions are working as e
 - Changed the NTFS Permissions for Department Shares as follows:
   - Added Manager groups to their respective shares, with **Full Control** Permissions
   - This gives Managers more access control over their respective shares compared to general users within the department (which have **Modify** Permissions)
-  [SCREENSHOT]
 
