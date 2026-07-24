@@ -165,5 +165,4 @@ foreach ($User in $Users) {
 Set-ADUser -Identity "<username>" -Manager "<manager username>"
 ```
 -I updated all users' manager fields to point to their respective manager
-[SCREENSHOT]
 
