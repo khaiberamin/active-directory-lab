@@ -11,10 +11,12 @@ Setup DHCP for the Domain Controller VM to provide automatic IP address assignme
   The IP Range starts at 192.168.56.100 and ends at 192.168.56.200 with Subnet mask 255.255.255.0, Length 24.
   Lease duration was set to 8 days.
 <img src="../screenshots/dhcp/dhcp-wizard-scope.png" width="600">
+
 - Select option to configure DHCP options now
 - Left default gateway option blank (not needed for Host Only Network)
 - Confirm that the parent domain used for DNS is homelab.local, and that the IP matches (192.168.56.10)
 <img src="../screenshots/dhcp/dhcp-wizard-dns-server.png" width="600">
+
 - Select option to activate the scope right away
 - Once Scope Wizard is complete, right-click the DHCP server name in the DHCP window, click Authorize, and then Refresh
 - DHCP functionality can be verified once a client VM joins the network
