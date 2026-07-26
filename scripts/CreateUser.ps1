@@ -27,5 +27,3 @@ New-ADUser `
 $GroupName = "${OU}_Group"
 
 Add-ADGroupMember -Identity $GroupName -Members $AccountName
-
-#end of script ------------------------------
