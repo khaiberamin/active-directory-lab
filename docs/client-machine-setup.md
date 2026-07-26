@@ -12,15 +12,17 @@ Create Client VM (CLIENT01)
 - Set CLIENT01 local admin username(user01) and password
 - Verify that IPv4 is set to "Obtain IP address automatically" for DHCP to work
 - Verify that IPv4 DNS server is set to the IP of DC01 (192.168.56.10)
-- Verify DHCP and DNS work properly [SCREENSHOT NEEDED]
+- Verify DHCP and DNS work properly
 
 ### Joining CLIENT01 to the Domain Steps
 - In Settings -> System -> About, select "Rename this PC (advanced)
 - Select "Change..." to rename computer to "CLIENT01" and set the Domain to "homelab.local"
 - Enter Administrator credentials to join domain successfully
 <img src="../screenshots/client-machine-setup/client-joins-domain-successfully.png" width="600">
+
 - After the necessary reboot, logged into CLIENT01 with HOMELAB\Administrator account to verify that the client machine is connected to the domain
 <img src="../screenshots/client-machine-setup/sign-in-to-client01-with-admin-account1.png" width="600">
+
 - Back in the Domain Controller (DC01), checked the DHCP Window to ensure that the Client machine's lease appeared in the Address Leases folder
 - Also checked Active Directory Users and Computers to ensure that Client machine appeared in the list of Computers in the domain
 <img src="../screenshots/client-machine-setup/client-dhcp-lease.png" width="600">
