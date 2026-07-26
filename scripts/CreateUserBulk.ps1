@@ -31,6 +31,3 @@ foreach ($User in $Users) {
    Write-Host "Created User $($User.FirstName) $($User.LastName) in $($User.OU)"
     
 }
-   
-
-#end of script ------------------------------
