@@ -32,7 +32,7 @@ The simulated environment for this project is the Active Directory (AD) managed 
   - Windows Server 2022 (Domain Controller VM)
   - Windows 10 (Client VM)
 - Management and Networking Tools
-  - Active Directory Domain Services (ADDS)
+  - Active Directory Domain Services (AD DS)
   - Dynamic Host Configuration Protocol (DHCP)
   - Domain Name System (DNS)
 - Scripting and Automation
@@ -84,7 +84,7 @@ Here are the PowerShell Scripts used for their respective purposes in this proje
 ## Skills Demonstrated
 - Virtual machine configuration using VirtualBox
 - Operating system installation and setup (Windows Server 2022 and Windows 10)
-- Active Directory Domain Services (ADDS) installation, setup, and management
+- Active Directory Domain Services (AD DS) installation, setup, and management
 - DHCP setup
 - Creating users and organizational units (OUs)
 - User account management
