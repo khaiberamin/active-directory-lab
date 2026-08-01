@@ -27,7 +27,7 @@ Setup DHCP for the Domain Controller VM to provide automatic IP address assignme
 <img src="../screenshots/dhcp/ipconfig-dhcp-verification.png" width="600">
 
 
-### VirtualBox DHCP Issues
+### DHCP Troubleshooting: VirtualBox Network Conflict
 - I ran into some DHCP issues related to VirtualBox
 - CLIENT01 continues to show DHCP Server as 192.168.56.100 instead of pointing to the Domain Controller (192.168.56.10)
-- After some troubleshooting and research, I found that VirtualBox has its own DHCP server by default, and it was set with Server Address 192.168.56.100, the address that CLIENT01 is pointing to. This suggests that CLIENT01 is using VirtualBox's DHCP Server instead of the one I configured in DC01. I tried disabling the VirtualBox DHCP Server from the VirtualBox Network Tab, but running "ipconfig /all" on CLIENT01 continues to show the DHCP Server IP as 192.168.56.100. Despite this, the CLIENT01 IP is still within the range I specified in DC01, DNS was working properly, and joining the domain was successful. Will continue looking into DHCP problem.
+- After some troubleshooting and research, I found that VirtualBox has its own DHCP server by default, and it was set with Server Address 192.168.56.100, the address that CLIENT01 is pointing to. This suggests tht VirtualBox's built-in DHCP server was responding instead of the Windows Server DHCP role. I tried disabling the VirtualBox DHCP Server from the VirtualBox Network Tab, but running "ipconfig /all" on CLIENT01 continues to show the DHCP Server IP as 192.168.56.100. Despite this, the CLIENT01 IP is still within the range I specified in DC01, DNS was working properly, and joining the domain was successful. Further investigation is planned to determine why CLIENT01 continues to display the VirtualBox DHCP server address despite successfully recieving an IP lease from the configured DHCP scope.
