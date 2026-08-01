@@ -49,7 +49,7 @@ To recreate the AD Lab environment in this project:
 -  Install Windows Server 2022 on the Server VM, configuring Domain Controller (DC), Active Directory, and DHCP functionality
 -  Install Windows 10 on the Client VM and join it to the domain created by the Domain Controller
 
-Detailed steps avialable in [Project Documentation](#project-documentation).
+Detailed steps available in [Project Documentation](#project-documentation).
 
 
 ## Project Documentation
