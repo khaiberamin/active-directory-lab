@@ -23,7 +23,7 @@ Steps:
 
 <img src="../screenshots/file-server-and-permissions/GROUPS-sharing-share-files.png" width="600">
 
-- This gives all Users access to each of these folders via their respective network paths. In order to enforce permissions, we use the Security Tab of each Share as follows
+- This gives all Users access to each of these folders via their respective network paths. In order to enforce permissions, we use the Security Tab of each Share as follows:
 - right-click a Share folder and open Properties
 - In Security tab, select "Advanced"
 - Select "Disable inheritance"
