@@ -13,8 +13,6 @@ This file documents the initial environment setup of the Active Directory homela
 - Network Adapter 1: NAT
 - Network Adapter 2: Host-Only
 
-#### Setup    
-
 ### Client Machine (CLIENT01)
 #### System Details
 - OS: Windows 10
